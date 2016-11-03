@@ -1,0 +1,12 @@
+@using Newtonsoft.Json; @{ ViewBag.Title = "Article"; ViewBag.GoBack = true; var json = JsonConvert.DeserializeObject(ViewBag.JSON); }
+
+
+<div class="reader">
+	
+	<div class="reader_container">
+		<h1>@json.title</h1>
+		<small>@json.provider_name</small>
+		<p>@json.description</p>
+		@Html.Raw(json.content) @if(json.media.length > 0){ @Html.Raw(json.media) }
+	</div>
+</div>
