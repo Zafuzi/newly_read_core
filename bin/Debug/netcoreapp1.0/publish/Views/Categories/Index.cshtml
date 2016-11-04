@@ -1,0 +1,21 @@
+@{ 
+    string title = ViewBag.Category;
+    ViewBag.Title = title; 
+}
+<h1 class="center_h">@ViewBag.Category</h1>
+
+<div class="stream_container">
+	@foreach (var item in ViewBag.CatArticles) {
+        <a href="/Categories/Article/?url=@item.url" class="stream_card">
+            <h4>@item.title</h4> 
+            <figure>
+                <img src="@item.urlToImage"/>
+                <figcaption>
+                    <p>@item.description</p>
+                    <small>@item.author @item.publishedAt</small>
+                </figcaption>
+            </figure>
+        </a>
+        <hr/>
+    }
+</div>
