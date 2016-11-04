@@ -43,8 +43,8 @@ namespace NewlyReadCore{
             return JObject.Parse(content).ToString();
         }
 
-        public static NewlyReadCore.SQLite.Article[] GetArticlesByCategory(string category, int length = 10){
-            return db.Articles.Where(i=> i.category == category).Take(length).ToArray<Article>();
+        public static NewlyReadCore.SQLite.Article[] GetArticlesByCategory(string category, int length = 20){
+            return db.Articles.Where(i=> i.category == category).ToArray<Article>();
         }
     }
 }

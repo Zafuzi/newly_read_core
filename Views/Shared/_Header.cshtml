@@ -2,7 +2,8 @@
 	<nav id="slide_nav" class="nav">
 		<ul>
 			<li>
-				<ul class="center">
+				<ul>
+					<li><a href="#" id="menu_toggle_close">Close</a></li>
 					<li><a href="/Categories/?category=business">Business</a></li>
 					<li><a href="/Categories/?category=entertainment">Entertainment</a></li>
 					<li><a href="/Categories/?category=gaming">Gaming</a></li>
@@ -13,13 +14,17 @@
 					<li><a href="/Categories/?category=technology">Technology</a></li>
 				</ul>
 			</li>
-			
 		</ul>
 	</nav>
 
 	<nav id="main_nav" class="nav">
 		<ul>
-			<li><a href="#" id="menu_toggle_open">Open</a> <a href="#" id="menu_toggle_close">Close</a></li>
+			<li><a href="#" id="menu_toggle_open">Categories</a></li>
 		</ul>
 	</nav>
+	@if(ViewBag.Title == "Article"){
+		<nav id="backbar_nav" class="nav">
+			<a class="back-btn" href="javascript:window.history.back();">Back</a>
+		</nav>
+	}
 </header>

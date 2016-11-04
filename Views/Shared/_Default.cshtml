@@ -1,26 +1,27 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="~/lib/css/main.css" />
-        <title>@ViewBag.Title</title>
-    </head>
-    <body>
-        @Html.Partial("_Header")
-        <main>
-            <section class="featured">
-                @RenderSection("featured", required: false)
-            </section>
-            @RenderBody()
-        </main>
 
-        
-        <script src="~/lib/scripts/jquery-3-1-1.min.js"></script>
-        <script src="~/lib/scripts/velocity.min.js"></script>
-        <script src="~/lib/scripts/jquery.sticky.js"></script>
-        <script src="~/lib/scripts/index.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/css/main.css">
+    <title>@ViewBag.Title</title>
+</head>
 
-        @RenderSection("scripts", required:false);
-    </body>
+<body>
+    @Html.Partial("_Header")
+    <main>
+        <section class="featured">
+            @RenderSection("featured", required: false)
+        </section>
+        @RenderBody()
+    </main>
+
+
+    <script src="~/lib/scripts/jquery-3-1-1.min.js"></script>
+    <script src="~/lib/scripts/velocity.min.js"></script>
+    <script src="~/lib/scripts/jquery.sticky.js"></script>
+    <script src="~/lib/scripts/index.js"></script> @RenderSection("scripts", required:false)
+</body>
+
 </html>
