@@ -20,6 +20,7 @@ $(function() {
     }
 
     console.log("If you are seeing this, the push worked!");
+    console.log("Ready");
 });
 
 // Get sources from the DB
