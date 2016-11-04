@@ -18,6 +18,8 @@ $(function() {
     if (!localStorage.getItem("articles")) {
         fetchArticles();
     }
+
+    console.log("If you are seeing this, the push worked!");
 });
 
 // Get sources from the DB
