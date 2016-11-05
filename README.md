@@ -1,25 +1,20 @@
 # Newly Read Core
 Newly Read Core is a Dotnet Core implementation of Newly Read http://newlyread.com
 
-<figure style="width:300px; text-align:center; margin: .5em;">
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/landing_page.png" width="300px" alt="Landing Page Image">
-    <figcaption>Landing Page</figcaption>
-</figure>
+#### Landing Page
+<img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/landing_page.png" alt="Landing Page Image">
 <br/>
-<figure style="width:300px; text-align:center; margin: .5em;">
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_desktop.png" width="300px" alt="Desktop Article Image">
-    <figcaption>Desktop Article</figcaption>
-</figure>
+
+#### Desktop Article
+<img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_desktop.png" alt="Desktop Article Image">
 <br/>
-<figure style="width:300px; text-align:center; margin: .5em;">
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_mobile.png" width="300px" alt="Mobile Article Image">
-    <figcaption>Mobile Article</figcaption>
-</figure>
+
+#### Mobile Article
+<img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_mobile.png" width="300px" alt="Mobile Article Image">
 <br/>
-<figure style="width:300px; text-align:center; margin: .5em;">
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/menu_mobile.png" width="300px" alt="Mobile Menu Image">
-    <figcaption>Mobile Menu</figcaption>
-</figure>
+
+#### Mobile Menu
+<img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/menu_mobile.png" width="300px" alt="Mobile Menu Image">
 
 ## Features
 - Uses [newsapi.org](newsapi.org) to gather sources and articles
