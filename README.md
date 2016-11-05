@@ -1,25 +1,22 @@
 # Newly Read Core
 Newly Read Core is a Dotnet Core implementation of Newly Read http://newlyread.com
 
-<figure>
+<figure style="width:300px; text-align:center; margin: .5em;">
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/landing_page.png" alt="Landing Page Image">
     <figcaption>Landing Page</figcaption>
 </figure>
-<figure>
+<figure style="width:300px; text-align:center; margin: .5em;">
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_desktop.png" alt="Desktop Article Image">
     <figcaption>Desktop Article</figcaption>
 </figure>
-<figure>
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_mobile.png" alt="Mobile Article Image" width="300px">
+<figure style="width:300px; text-align:center; margin: .5em;">
+    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_mobile.png" alt="Mobile Article Image">
     <figcaption>Mobile Article</figcaption>
 </figure>
-<figure>
-    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/menu_mobile.png" alt="Mobile Menu Image" width="300px">
+<figure style="width:300px; text-align:center; margin: .5em;">
+    <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/menu_mobile.png" alt="Mobile Menu Image">
     <figcaption>Mobile Menu</figcaption>
 </figure>
-
-
-
 
 ## Features
 - Uses [newsapi.org](newsapi.org) to gather sources and articles
