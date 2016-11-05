@@ -5,14 +5,17 @@ Newly Read Core is a Dotnet Core implementation of Newly Read http://newlyread.c
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/landing_page.png" width="300px" alt="Landing Page Image">
     <figcaption>Landing Page</figcaption>
 </figure>
+<br/>
 <figure style="width:300px; text-align:center; margin: .5em;">
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_desktop.png" width="300px" alt="Desktop Article Image">
     <figcaption>Desktop Article</figcaption>
 </figure>
+<br/>
 <figure style="width:300px; text-align:center; margin: .5em;">
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/article_mobile.png" width="300px" alt="Mobile Article Image">
     <figcaption>Mobile Article</figcaption>
 </figure>
+<br/>
 <figure style="width:300px; text-align:center; margin: .5em;">
     <img src="https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/menu_mobile.png" width="300px" alt="Mobile Menu Image">
     <figcaption>Mobile Menu</figcaption>
