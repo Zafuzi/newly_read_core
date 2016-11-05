@@ -5,9 +5,7 @@
 	var json = JsonConvert.DeserializeObject(ViewBag.JSON); 
 }
 
-
 <div class="reader">
-	
 	<div class="reader_container">
 		<h1>@json.title</h1>
 		<small>@json.provider_name | <a href="@json.url" target="_blank"> Original Article </a> </small>
