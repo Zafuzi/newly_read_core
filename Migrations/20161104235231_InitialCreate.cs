@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dtest.Migrations
+namespace newly_read_core.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -17,6 +17,8 @@ namespace dtest.Migrations
                     author = table.Column<string>(nullable: true),
                     category = table.Column<string>(nullable: true),
                     description = table.Column<string>(nullable: true),
+                    jsonstring = table.Column<string>(nullable: true),
+                    provider_name = table.Column<string>(nullable: true),
                     publishedAt = table.Column<string>(nullable: true),
                     timestamp = table.Column<DateTime>(nullable: false),
                     title = table.Column<string>(nullable: true),

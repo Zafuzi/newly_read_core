@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NewlyReadCore.SQLite;
+using NewlyReadCore.Tools;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -43,8 +45,23 @@ namespace NewlyReadCore{
             return JObject.Parse(content).ToString();
         }
 
-        public static NewlyReadCore.SQLite.Article[] GetArticlesByCategory(string category, int length = 20){
-            return db.Articles.Where(i=> i.category == category).ToArray<Article>();
+        public static List<Article> GetArticlesByCategory(string category, int length = 20){
+            var db = new MyDBContext();
+
+            var providers = db.Articles.Where(i => i.category == category).GroupBy(p => p.provider_name)
+                            .Select(group => new { id = group.Key, articles = group.Take(length).OrderBy(p => Guid.NewGuid()).ToList() })
+                            .ToList();
+            
+            List<Article> articles = new List<Article>();
+
+            foreach(var provider in providers){
+                foreach(var article in provider.articles){
+                    articles.Add(article);
+                }
+            }
+            ArrayTools.Shuffle(articles);
+            
+            return articles;
         }
     }
 }

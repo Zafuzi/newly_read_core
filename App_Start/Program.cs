@@ -26,7 +26,7 @@ namespace NewlyReadCore
                 {
                     Console.WriteLine("\n\n Reseeding Articles \n\n");
                     reseedArticles();
-                }, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
+                }, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
 
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -160,7 +160,8 @@ namespace NewlyReadCore
                                     category = source.category,
                                     urlToImage = article.Children().ElementAt(4).Last().ToString(),
                                     publishedAt = article.Children().ElementAt(5).Last().ToString(),
-                                    timestamp = DateTime.Now
+                                    timestamp = DateTime.Now,
+                                    provider_name = source.sourceID
                                 });
                                 context.SaveChanges();
                             }
@@ -175,7 +176,6 @@ namespace NewlyReadCore
 
                 context.SaveChanges();
             }
-
             Console.WriteLine("Articles Updated: " + DateTime.Now);
         }
     }

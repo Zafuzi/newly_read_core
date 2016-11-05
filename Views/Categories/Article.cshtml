@@ -10,7 +10,7 @@
 	
 	<div class="reader_container">
 		<h1>@json.title</h1>
-		<small>@json.provider_name | <a href="@json.url"> Original Article </a> </small>
+		<small>@json.provider_name | <a href="@json.url" target="_blank"> Original Article </a> </small>
 		<p>@json.description</p>
 		@Html.Raw(json.content)
 		@if(json.media.length > 0){ 

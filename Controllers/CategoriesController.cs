@@ -11,8 +11,7 @@ namespace NewlyReadCore{
         public ActionResult Index(string category){
             Console.WriteLine("\n\n\n" + category + " \n\n\n");
             ViewBag.Category = category;
-            Article[] cat_articles = ReadAPI.GetArticlesByCategory(category);
-            ViewBag.CatArticles = cat_articles;
+            ViewBag.List = ReadAPI.GetArticlesByCategory(category);
             return View("Index");
         }
 

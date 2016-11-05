@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using NewlyReadCore.SQLite;
 
-namespace dtest.Migrations
+namespace newly_read_core.Migrations
 {
     [DbContext(typeof(MyDBContext))]
     partial class MyDBContextModelSnapshot : ModelSnapshot
@@ -27,6 +27,8 @@ namespace dtest.Migrations
                     b.Property<string>("description");
 
                     b.Property<string>("jsonstring");
+
+                    b.Property<string>("provider_name");
 
                     b.Property<string>("publishedAt");
 

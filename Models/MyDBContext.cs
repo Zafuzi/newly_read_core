@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ namespace NewlyReadCore.SQLite
     public class Article
     {
         public long id { get; set; }
+        public string provider_name {get; set;}
         public string author { get; set; }
         public string description { get; set; }
         public string publishedAt { get; set; }
@@ -42,4 +44,5 @@ namespace NewlyReadCore.SQLite
         public System.DateTime timestamp { get; set; }
         public string jsonstring {get; set;}
     }
+    
 }

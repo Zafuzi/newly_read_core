@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using NewlyReadCore.SQLite;
 
-namespace dtest.Migrations
+namespace newly_read_core.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20161103154054_InitialCreate")]
+    [Migration("20161104235231_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,10 @@ namespace dtest.Migrations
                     b.Property<string>("category");
 
                     b.Property<string>("description");
+
+                    b.Property<string>("jsonstring");
+
+                    b.Property<string>("provider_name");
 
                     b.Property<string>("publishedAt");
 
