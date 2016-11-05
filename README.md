@@ -1,7 +1,7 @@
 # Newly Read Core
 Newly Read Core is a Dotnet Core implementation of Newly Read http://newlyread.com
 
-![Newly Read](https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/langind_page.png)
+![Newly Read](https://github.com/Zafuzi/newly_read_core/raw/master/readme_images/landing_page.png)
 
 ## Features
 - Uses [newsapi.org](newsapi.org) to gather sources and articles
