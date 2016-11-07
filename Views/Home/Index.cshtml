@@ -1,32 +1,22 @@
 @using NewlyReadCore.SQLite 
+@using NewlyReadCore.Tools
 @{ 
     ViewBag.Title = "Home"; 
-    Layout = "~/Views/Shared/_Default.cshtml";
-    var db = new MyDBContext();
-    var providers = db.Articles.GroupBy(p => p.provider_name)
-                    .Select(group => new { id = group.Key, articles = group.Take(2).OrderBy(p => p.timestamp).ToList() })
-                    .ToList();
 }
 <h1 class="center_h">Newly Read</h1>
-<!--<div class="stream_container">
-    
-</div>-->
-<!-- AWESOME IDEA! Use a single page for all the categories! It'll be easy! I swear! -->
-<div class="stream_container">
-    @foreach(var provider in providers){
-        @foreach (var article in provider.articles) {
-            <a href="/Categories/Article/?url=@article.url" class="stream_card">
-                <h4>@article.title</h4>
-                <figure>
-                    <img src="@article.urlToImage" />
-                    <figcaption>
-                        <p>@article.description</p>
-                        <small>@article.author @article.publishedAt</small>
-                    </figcaption>
-                </figure>
-            </a>
-            <hr/>
-        }
+<div class="stream_container"> 
+    @foreach(var article in ViewBag.DB){
+        <a href="/Categories/Article/?url=@article.url" class="stream_card">
+            <h4>@article.title</h4>
+            <figure>
+                <img src="@article.urlToImage"/>
+                <figcaption>
+                    <p>@ArrayTools.Truncate(article.description, 120)...</p>
+                    <br/>
+                    <p>@article.provider_name | @article.author @article.publishedAt</p>
+                </figcaption>
+            </figure>
+        </a>
+        <hr/>
     }
-    
 </div>

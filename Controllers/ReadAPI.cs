@@ -30,6 +30,21 @@ namespace NewlyReadCore{
             return result;
         }
 
+        public static List<Article> SummarizeLatestArticles(int length = 2){
+            var db = new MyDBContext();
+            var providers = db.Articles.GroupBy(p => p.provider_name)
+                    .Select(group => new { id = group.Key, articles = group.Take(length).OrderBy(p => p.timestamp).ToList() })
+                    .ToList();
+            List<Article> articles = new List<Article>();
+            foreach(var provider in providers){
+                foreach(var article in provider.articles){
+                    articles.Add(article);
+                }
+            }
+            ArrayTools.Shuffle(articles);
+            return articles;
+        }
+
         public static string ExtractHtmlFromURL(string url){
             //  This method will be called after migrating to the latest version.
             var client = new RestClient("http://api.embed.ly/1/");
@@ -44,12 +59,12 @@ namespace NewlyReadCore{
             var content = restResponse.Content;
             return JObject.Parse(content).ToString();
         }
-
+        // I shoudl really refactor this to work better with each page. (As in the home page.)
         public static List<Article> GetArticlesByCategory(string category, int length = 20){
             var db = new MyDBContext();
 
             var providers = db.Articles.Where(i => i.category == category).GroupBy(p => p.provider_name)
-                            .Select(group => new { id = group.Key, articles = group.Take(length).OrderBy(p => Guid.NewGuid()).ToList() })
+                            .Select(group => new { id = group.Key, articles = group.OrderByDescending(p => p.timestamp).Take(length).ToList() })
                             .ToList();
             
             List<Article> articles = new List<Article>();

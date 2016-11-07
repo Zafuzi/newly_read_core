@@ -36,13 +36,15 @@ main {
     width: 100vw;
     display: block;
     margin: auto;
-    margin-top: 1em;
+    margin-top: 48px;
     padding: 0;
     z-index: 1;
 }
 
 h1 {
     font-size: 2rem;
+    color: #898989;
+    font-weight: lighter;
 }
 
 
@@ -76,7 +78,7 @@ hr {
     flex-flow: column;
     border-radius: 1px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     z-index: 1;
     cursor: pointer;
     cursor: hand;
@@ -89,8 +91,9 @@ hr {
     flex: 1;
     font-size: 1.5rem;
     line-height: 3rem;
-    font-weight: bolder;
+    font-weight: lighter;
     z-index: 1;
+    color: #444;
 }
 
 .stream_card figure {
@@ -98,7 +101,7 @@ hr {
     margin: 0 .25em;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-flow: row wrap;
     z-index: 1;
 }
@@ -107,7 +110,11 @@ hr {
     font-size: 1.1rem;
     flex: 0 0 calc(70% - 1em);
     width: 70%;
+    display: flex;
+    flex-flow: column;
     font-weight: lighter;
+    align-items: flex-start;
+    justify-content: center;
 }
 .stream_card figcaption p {
     margin: 0;
@@ -116,8 +123,8 @@ hr {
 .stream_card img {
     display: flex;
     object-fit: contain;
-    width: 30%;
-    flex: 0 0 calc(30%  - 1em);
+    width: 25%;
+    flex: 0 0 calc(25%  - 1em);
     margin: 0;
     padding: 0;
     z-index: 1;
@@ -136,6 +143,8 @@ hr {
     position: fixed;
     top: 0;
     left: 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
 }
 
 .nav ul {
@@ -160,11 +169,11 @@ hr {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: #804ed8;
+    background: #fff;
 }
 #slide_nav ul {
     width: 100%;
-    height: 50%;
+    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -177,7 +186,6 @@ hr {
     padding: .25em;
 }
 #slide_nav a{
-    color: #fff;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -185,21 +193,29 @@ hr {
     display: block;
     font-size: 2rem;
     line-height: 2rem;
+
+    font-weight: lighter;
+    color: #898989;
     
 }
 #main_nav{
-    background: #673AB7;
-    color: #fff;
+    background: #fff;
+    color: #515151;
     display: flex;
     align-items: center;
     justify-content: center;
+
+
+    height: 38px !important;
+    border-bottom: 1px solid #e9e9e9;
 }
 #main_nav ul{
     display: flex;
     justify-content: center;
 }
 #main_nav a{
-    color: #fff;
+    font-weight: lighter;
+    color: #898989;
 }
 
 #backbar_nav {
@@ -209,7 +225,12 @@ hr {
     color: white;
     z-index: 99;
     background: #804ed8;
-    height: 0;
+    height: 38px;
+    font-size: 2rem;
+}
+#backbar_nav a {
+    font-size: 1.5rem;
+    font-weight: bolder;
 }
 
 
@@ -232,10 +253,18 @@ hr {
     color: #fff;
     text-decoration: none;
 }
-
-.reader_container {
-    width: 65%;
+blockquote {
+    width: 90%;
     margin: auto;
+    color: #898989;
+    border-left: 3px solid #c8c8c8;
+    padding-left: 1em;
+}
+.reader_container {
+    max-width: 40em;
+    margin: auto;
+    line-height: 2.5rem;
+    font-size: 1.2rem;
 }
 
 .reader_container h1 {
@@ -249,7 +278,7 @@ figure, iframe, a>img {
     display: flex;
     flex: 0 0 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     justify-content: center;
 }
 .reader_container a{

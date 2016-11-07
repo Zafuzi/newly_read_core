@@ -9,9 +9,8 @@ using Newtonsoft.Json.Linq;
 namespace NewlyReadCore{
     public class CategoriesController : Controller{
         public ActionResult Index(string category){
-            Console.WriteLine("\n\n\n" + category + " \n\n\n");
             ViewBag.Category = category;
-            ViewBag.List = ReadAPI.GetArticlesByCategory(category);
+            ViewBag.List = ReadAPI.GetArticlesByCategory(category, 10);
             return View("Index");
         }
 
