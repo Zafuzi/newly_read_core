@@ -222,15 +222,16 @@ hr {
     flex: 0 0 100%;
     display: flex;
     width: 100vw;
-    color: white;
+    color: #898989;
     z-index: 99;
-    background: #804ed8;
+    background: #fff;
     height: 38px;
     font-size: 2rem;
+    font-weight: lighter;
 }
 #backbar_nav a {
     font-size: 1.5rem;
-    font-weight: bolder;
+    font-weight: lighter;
 }
 
 
@@ -246,12 +247,13 @@ hr {
 
 .back-btn {
     margin: auto;
-    background: #804ed8;
+    background: #fff;
     width: 100%;
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: #898989;
     text-decoration: none;
+    font-weight: lighter;
 }
 blockquote {
     width: 90%;
