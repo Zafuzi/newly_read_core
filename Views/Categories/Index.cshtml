@@ -11,7 +11,7 @@
         <a href="/Categories/Article/?url=@article.url" class="stream_card">
             <h4>@article.title</h4>
             <figure>
-                <img src="@article.urlToImage"/>
+                <img src="~/lib/images/default.png" data-src="@article.urlToImage"/>
                 <figcaption>
                     <p>@ArrayTools.Truncate(article.description, 120)...</p>
                     <br/>

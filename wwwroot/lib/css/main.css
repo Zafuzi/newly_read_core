@@ -65,6 +65,10 @@ h1 {
     color: #898989;
     font-weight: lighter;
 }
+img {
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
 
 
 /* Stream */

@@ -18,6 +18,12 @@ $(function() {
     if (!localStorage.getItem("articles")) {
         fetchArticles();
     }
+    $("img").unveil(200, function() {
+        $(this).on('load', function(){
+            $(this).velocity({"opacity": "1"});
+        });
+        
+    });
 
     console.log("If you are seeing this, the push worked!");
     console.log("Ready");
