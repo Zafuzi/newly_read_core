@@ -1,8 +1,10 @@
 @using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 @{ 
 	ViewBag.Title = "Article"; 
 	ViewBag.GoBack = true; 
-	var json = JsonConvert.DeserializeObject(ViewBag.JSON); 
+	var json = JsonConvert.DeserializeObject(ViewBag.JSON);
+	var img = json["content"].Children()["img"];
 }
 
 <div class="reader">
@@ -16,3 +18,18 @@
 		}
 	</div>
 </div>
+
+@section scripts{
+	<script>
+		$(function(){
+			$("img").map((img, key) => {
+				$(key).attr('data-src', $(key).attr('src'));
+			});
+			$("img").unveil(200, function() {
+				$(this).on('load', function(){
+					$(this).velocity({"opacity": "1"});
+				});
+			});
+		});
+	</script>
+}

@@ -33,7 +33,7 @@ namespace NewlyReadCore{
         public static List<Article> SummarizeLatestArticles(int length = 2){
             var db = new MyDBContext();
             var providers = db.Articles.GroupBy(p => p.provider_name)
-                    .Select(group => new { id = group.Key, articles = group.Take(length).OrderBy(p => p.timestamp).ToList() })
+                    .Select(group => new { id = group.Key, articles = group.OrderByDescending(p => p.timestamp).Take(length).ToList() })
                     .ToList();
             List<Article> articles = new List<Article>();
             foreach(var provider in providers){
@@ -41,8 +41,7 @@ namespace NewlyReadCore{
                     articles.Add(article);
                 }
             }
-            ArrayTools.Shuffle(articles);
-            return articles;
+            return articles.OrderByDescending(p => p.timestamp).ToList();
         }
 
         public static string ExtractHtmlFromURL(string url){
@@ -62,21 +61,16 @@ namespace NewlyReadCore{
         // I shoudl really refactor this to work better with each page. (As in the home page.)
         public static List<Article> GetArticlesByCategory(string category, int length = 20){
             var db = new MyDBContext();
-
-            var providers = db.Articles.Where(i => i.category == category).GroupBy(p => p.provider_name)
-                            .Select(group => new { id = group.Key, articles = group.OrderByDescending(p => p.timestamp).Take(length).ToList() })
-                            .ToList();
-            
+            var providers = db.Articles.Where(i => i.category.Contains(category)).GroupBy(p => p.provider_name)
+                    .Select(group => new { id = group.Key, articles = group.OrderByDescending(p => p.timestamp).Take(length).ToList() })
+                    .ToList();
             List<Article> articles = new List<Article>();
-
             foreach(var provider in providers){
                 foreach(var article in provider.articles){
                     articles.Add(article);
                 }
             }
-            ArrayTools.Shuffle(articles);
-            
-            return articles;
+            return articles.OrderByDescending(p => p.timestamp).ToList();
         }
     }
 }
