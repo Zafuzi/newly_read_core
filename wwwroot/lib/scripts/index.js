@@ -9,7 +9,7 @@ var sources = {
     technology: [],
 };
 
-$(function() {
+$(function () {
     setAnimations();
 
     if (!localStorage.getItem("sources")) {
@@ -18,11 +18,11 @@ $(function() {
     if (!localStorage.getItem("articles")) {
         fetchArticles();
     }
-    $("img").unveil(200, function() {
-        $(this).on('load', function(){
-            $(this).velocity({"opacity": "1"});
+    $("img").unveil(200, function () {
+        $(this).on('load', function () {
+            $(this).velocity({ "opacity": "1" });
         });
-        
+
     });
 
     console.log("If you are seeing this, the push worked!");
@@ -38,7 +38,7 @@ function fetchSources() {
         })
         .then(json => {
             console.log("Successfully fetched sources: ", json);
-            json.map(function(source) {
+            json.map(function (source) {
                 switch (source.category) {
                     case 'business':
                         sources.business.push(source);
@@ -90,23 +90,29 @@ function fetchArticles() {
 }
 // Set default animation behavior using velocity
 function setAnimations() {
-    $('#menu_toggle_open').click(function() {
-        $('#slide_nav').velocity({
-            'height': '100vh'
-        });
-    });
-    $('#menu_toggle_close').click(function() {
-        $('#slide_nav').velocity({
-            'height': '0'
-        });
 
-        $('#main_nav').velocity({
-            "opacity": '1'
-        }, {
-            complete: function() {
-                $('#main_nav').css('z-index', '99');
-            }
-        });
+    $('#menu_toggle_open').click(function () {
+        if ($('#menu_toggle_open').hasClass('toggled')) {
+            $('#slide_nav').velocity({
+                'height': '0'
+            });
+            $('#menu_toggle_open').removeClass('toggled').velocity({opacity: 0,}, {
+                complete: function () {
+                    $(this).text('Categories');
+                    $(this).velocity({ opacity: 1 });
+                }
+            });
+        } else {
+            $('#slide_nav').velocity({
+                'height': '100vh'
+            });
+            $('#menu_toggle_open').addClass('toggled').velocity({opacity: 0,}, {
+                complete: function () {
+                    $(this).text('Close');
+                    $(this).velocity({ opacity: 1 });
+                }
+            });
+        }
     });
 }
 
