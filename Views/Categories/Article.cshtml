@@ -3,19 +3,42 @@
 @{ 
 	ViewBag.Title = "Article"; 
 	ViewBag.GoBack = true; 
-	var json = JsonConvert.DeserializeObject(ViewBag.JSON);
+	@*var json = JsonConvert.DeserializeObject(ViewBag.JSON);
 	var img = json["content"].Children()["img"];
+	*@
 }
 
 <div class="reader">
 	<div class="reader_container">
-		<h1>@json.title</h1>
+		<h1>@ViewBag.JSON["title"][0]</h1>
+		
+		<br/>
+		@foreach(var p in ViewBag.JSON["text"]){
+			<p>@p</p>
+		}
+
+		@*
+			This is simply the extra code from the extraction.
+			TODO remove from production
+		<div class="code_container">
+			<code>
+				<pre>
+					@foreach(var e in ViewBag.JSON["extra"]){
+						@e
+					}
+				</pre>
+			</code>
+		</div>
+		*@
+		
+		
+		@*<h1>@json.title</h1>
 		<small>@json.provider_name | <a href="@json.url" target="_blank"> Original Article </a> </small>
 		<p><blockquote>@json.description</blockquote></p>
 		@Html.Raw(json.content)
 		@if(json.media.length > 0){ 
 			@Html.Raw(json.media) 
-		}
+		}*@
 	</div>
 </div>
 

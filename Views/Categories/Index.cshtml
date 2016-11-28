@@ -4,14 +4,17 @@
     string title = ViewBag.Category;
     ViewBag.Title = title; 
 }
-<h1 class="center_h">@ViewBag.Category</h1>
 
 <div class="stream_container"> 
     @foreach(var article in ViewBag.List){
         <a href="/Categories/Article/?url=@article.url" class="stream_card">
             <h4>@article.title</h4>
             <figure>
-                <img src="~/lib/images/default.png" data-src="@article.urlToImage"/>
+                @if(article.urlToImage!=null){
+                     <img src="@article.urlToImage" data-src="@article.urlToImage"/>
+                }else{
+                     <img src="@article.urlToImage" data-src="../images/default.png"/>
+                }
                 <figcaption>
                     <p>@ArrayTools.Truncate(article.description, 120)...</p>
                     <br/>
