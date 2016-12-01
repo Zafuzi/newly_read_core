@@ -2,43 +2,18 @@
 @using Newtonsoft.Json.Linq
 @{ 
 	ViewBag.Title = "Article"; 
-	ViewBag.GoBack = true; 
-	@*var json = JsonConvert.DeserializeObject(ViewBag.JSON);
-	var img = json["content"].Children()["img"];
-	*@
+	ViewBag.GoBack = true;
 }
 
 <div class="reader">
 	<div class="reader_container">
-		<h1>@ViewBag.JSON["title"][0]</h1>
-		
-		<br/>
-		@foreach(var p in ViewBag.JSON["text"]){
-			<p>@p</p>
+		@foreach(var node in ViewBag.Nodes["title"]){
+			<h1>@Html.Raw(node.InnerText)</h1>
 		}
-
-		@*
-			This is simply the extra code from the extraction.
-			TODO remove from production
-		<div class="code_container">
-			<code>
-				<pre>
-					@foreach(var e in ViewBag.JSON["extra"]){
-						@e
-					}
-				</pre>
-			</code>
-		</div>
-		*@
-		
-		
-		@*<h1>@json.title</h1>
-		<small>@json.provider_name | <a href="@json.url" target="_blank"> Original Article </a> </small>
-		<p><blockquote>@json.description</blockquote></p>
-		@Html.Raw(json.content)
-		@if(json.media.length > 0){ 
-			@Html.Raw(json.media) 
-		}*@
+		<a href="@ViewBag.Original" target="_blank">Original Article</a>
+		@foreach(var node in ViewBag.Nodes["content"]){
+			<p>@Html.Raw(node.InnerText)</p>
+		}
 	</div>
 </div>
 

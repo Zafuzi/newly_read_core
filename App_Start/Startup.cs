@@ -2,12 +2,24 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
+using Stormpath.AspNetCore;
+using Stormpath.Configuration.Abstractions;
 
 public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc();
+        services.AddStormpath(new StormpathConfiguration()
+        {
+            Web = new WebConfiguration()
+            {
+                Me = new WebMeRouteConfiguration()
+                {
+                    Uri = "/userDetails"
+                }
+            }
+        });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -19,7 +31,7 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
+        app.UseStormpath();
         app.UseStaticFiles();
 
         app.UseMvc(routes =>

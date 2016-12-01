@@ -3,6 +3,24 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "FlexibleConfiguration/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel.TypeConverter": "4.1.0",
+          "System.IO.FileSystem": "4.0.1",
+          "System.Linq": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "YamlDotNet": "3.9.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/FlexibleConfiguration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/FlexibleConfiguration.dll": {}
+        }
+      },
       "HtmlAgilityPack.NetCore/1.5.0.1": {
         "type": "package",
         "dependencies": {
@@ -79,6 +97,24 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "1.0.0",
+          "Microsoft.AspNetCore.Http": "1.0.0",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Options": "1.0.0",
+          "Microsoft.Extensions.WebEncoders": "1.0.0",
+          "System.Net.Http": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/1.0.0": {
@@ -579,6 +615,18 @@
           "lib/netstandard1.6/Microsoft.AspNetCore.Mvc.ViewFeatures.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Owin/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http": "1.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Owin.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -893,6 +941,16 @@
         },
         "runtime": {
           "lib/netcoreapp1.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win7-x64/lib/net451/Microsoft.EntityFrameworkCore.Design.exe": {
+            "assetType": "runtime",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/lib/net451/Microsoft.EntityFrameworkCore.Design.exe": {
+            "assetType": "runtime",
+            "rid": "win7-x86"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore.Design.Core/1.0.0-preview2-final": {
@@ -1594,6 +1652,21 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Polyglot/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/Polyglot.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Polyglot.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -1863,6 +1936,166 @@
           }
         }
       },
+      "Stormpath.AspNetCore/0.8.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "1.0.0",
+          "Microsoft.AspNetCore.Authorization": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
+          "Microsoft.AspNetCore.Owin": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "Stormpath.Owin.Middleware": "3.1.1",
+          "Stormpath.Owin.Views.Precompiled": "0.4.3"
+        },
+        "compile": {
+          "lib/netstandard1.6/Stormpath.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/Stormpath.AspNetCore.dll": {}
+        }
+      },
+      "Stormpath.Configuration/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FlexibleConfiguration": "1.2.0",
+          "Stormpath.Configuration.Abstractions": "6.0.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Stormpath.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Stormpath.Configuration.dll": {}
+        }
+      },
+      "Stormpath.Configuration.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/Stormpath.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Stormpath.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Stormpath.Owin.Abstractions/1.7.1": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.Configuration.Abstractions": "6.0.0",
+          "Stormpath.SDK.Abstractions": "0.95.0",
+          "System.IO": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Stormpath.Owin.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Stormpath.Owin.Abstractions.dll": {}
+        }
+      },
+      "Stormpath.Owin.Middleware/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.Owin.Abstractions": "1.7.1",
+          "Stormpath.SDK": "0.95.0",
+          "System.Net.Http": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Stormpath.Owin.Middleware.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Stormpath.Owin.Middleware.dll": {}
+        }
+      },
+      "Stormpath.Owin.Views.Precompiled/0.4.3": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.Owin.Abstractions": "1.7.1",
+          "Stormpath.SDK.Abstractions": "0.95.0",
+          "System.Globalization": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.1/Stormpath.Owin.Views.Precompiled.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Stormpath.Owin.Views.Precompiled.dll": {}
+        }
+      },
+      "Stormpath.SDK/0.95.0": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.SDK.Core": "0.95.0",
+          "Stormpath.SDK.Http.SystemNetHttpClient": "0.94.0",
+          "Stormpath.SDK.JsonNetSerializer": "0.91.0"
+        }
+      },
+      "Stormpath.SDK.Abstractions/0.95.0": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.Configuration.Abstractions": "6.0.0",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Linq.Expressions": "4.1.0",
+          "System.Linq.Queryable": "4.0.1",
+          "System.Net.Primitives": "4.0.11",
+          "System.Reflection.Extensions": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Stormpath.SDK.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Stormpath.SDK.Abstractions.dll": {}
+        }
+      },
+      "Stormpath.SDK.Core/0.95.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "1.0.0",
+          "Polyglot": "1.2.0",
+          "Stormpath.Configuration": "6.0.0",
+          "Stormpath.SDK.Abstractions": "0.95.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Stormpath.SDK.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Stormpath.SDK.Core.dll": {}
+        }
+      },
+      "Stormpath.SDK.Http.SystemNetHttpClient/0.94.0": {
+        "type": "package",
+        "dependencies": {
+          "Stormpath.SDK.Abstractions": "0.94.0",
+          "System.Net.Http": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Stormpath.SDK.Http.SystemNetHttpClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Stormpath.SDK.Http.SystemNetHttpClient.dll": {}
+        }
+      },
+      "Stormpath.SDK.JsonNetSerializer/0.91.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "Stormpath.SDK.Abstractions": "0.91.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Stormpath.SDK.JsonNetSerializer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Stormpath.SDK.JsonNetSerializer.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1900,6 +2133,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Collections.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Collections.Concurrent/4.3.0": {
@@ -2104,6 +2340,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Diagnostics.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Diagnostics.DiagnosticSource/4.3.0": {
@@ -2216,6 +2455,9 @@
         },
         "compile": {
           "ref/netstandard1.0/System.Diagnostics.Tools.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Diagnostics.Tracing/4.3.0": {
@@ -2227,6 +2469,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Diagnostics.Tracing.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Dynamic.Runtime/4.0.11": {
@@ -2264,6 +2509,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Globalization.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Globalization.Calendars/4.3.0": {
@@ -2332,6 +2580,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.IO.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.IO.Compression/4.3.0": {
@@ -2355,6 +2606,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.IO.Compression.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.IO.Compression.dll": {
@@ -2619,6 +2873,9 @@
         "compile": {
           "ref/netstandard1.3/System.Net.Http.dll": {}
         },
+        "runtime": {
+          "lib/net45/_._": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Net.Http.dll": {
             "assetType": "runtime",
@@ -2672,6 +2929,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Net.Requests/4.0.11": {
@@ -2693,6 +2953,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Requests.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Net.Requests.dll": {
@@ -2872,6 +3135,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Reflection.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.DispatchProxy/4.0.1": {
@@ -2950,6 +3216,9 @@
         },
         "compile": {
           "ref/netstandard1.0/System.Reflection.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.Metadata/1.4.1": {
@@ -2988,6 +3257,9 @@
         },
         "compile": {
           "ref/netstandard1.0/System.Reflection.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.TypeExtensions/4.3.0": {
@@ -3030,6 +3302,9 @@
         },
         "compile": {
           "ref/netstandard1.0/System.Resources.ResourceManager.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime/4.3.0": {
@@ -3040,6 +3315,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.3.0": {
@@ -3063,6 +3341,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.Handles/4.3.0": {
@@ -3088,6 +3369,9 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.InteropServices.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.3.0": {
@@ -3481,6 +3765,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Text.Encoding.CodePages/4.0.1": {
@@ -3523,6 +3810,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Text.Encoding.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Text.Encodings.Web/4.3.0": {
@@ -3604,6 +3894,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
         }
       },
       "System.Threading.Tasks.Dataflow/4.6.0": {
@@ -3695,6 +3988,9 @@
         },
         "compile": {
           "ref/netstandard1.2/System.Threading.Timer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/_._": {}
         }
       },
       "System.Xml.ReaderWriter/4.3.0": {
@@ -3834,10 +4130,30 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "YamlDotNet/3.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net35/YamlDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net35/YamlDotNet.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "FlexibleConfiguration/1.2.0": {
+      "sha512": "OhluzK+gB9w90uUMREtsuM8Ox2P5cOWsmevOObiTU9sSt1OOpmKCUYyiW7/wlBH+6zB/tdA07V70Ttxab7Wduw==",
+      "type": "package",
+      "path": "FlexibleConfiguration/1.2.0",
+      "files": [
+        "FlexibleConfiguration.1.2.0.nupkg.sha512",
+        "FlexibleConfiguration.nuspec",
+        "lib/net45/FlexibleConfiguration.dll",
+        "lib/netstandard1.3/FlexibleConfiguration.dll"
+      ]
+    },
     "HtmlAgilityPack.NetCore/1.5.0.1": {
       "sha512": "N6FUlFbidfiWu1TcrNDQufaU5TbZ2RRn+kYHjwsLxcklQU8Cnmul+pTn2clKausZRHeFVxGp2ZECIWuDvot8Hg==",
       "type": "package",
@@ -3898,6 +4214,19 @@
         "lib/net451/Microsoft.AspNetCore.Antiforgery.xml",
         "lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.dll",
         "lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication/1.0.0": {
+      "sha512": "3af/pZSoaIkZPjGPTlpvIXKDA4NCN6O7++iSO4N2rnKjC5OFHnCX5CLzRxO6721kqovIssRPo84q1HvT4IL6GQ==",
+      "type": "package",
+      "path": "Microsoft.AspNetCore.Authentication/1.0.0",
+      "files": [
+        "Microsoft.AspNetCore.Authentication.1.0.0.nupkg.sha512",
+        "Microsoft.AspNetCore.Authentication.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Authentication.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.xml"
       ]
     },
     "Microsoft.AspNetCore.Authorization/1.0.0": {
@@ -4269,6 +4598,19 @@
         "lib/net451/Microsoft.AspNetCore.Mvc.ViewFeatures.xml",
         "lib/netstandard1.6/Microsoft.AspNetCore.Mvc.ViewFeatures.dll",
         "lib/netstandard1.6/Microsoft.AspNetCore.Mvc.ViewFeatures.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Owin/1.0.0": {
+      "sha512": "Z3H3wfiHn3NKXmFzXGD6oeqyV1WJ+SpLks9mWL89zXDIFc4O1inm9JXegpC5t7HGM/0taIhrDqWTaKiLqZO7Rw==",
+      "type": "package",
+      "path": "Microsoft.AspNetCore.Owin/1.0.0",
+      "files": [
+        "Microsoft.AspNetCore.Owin.1.0.0.nupkg.sha512",
+        "Microsoft.AspNetCore.Owin.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Owin.dll",
+        "lib/net451/Microsoft.AspNetCore.Owin.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Owin.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Owin.xml"
       ]
     },
     "Microsoft.AspNetCore.Razor/1.0.0": {
@@ -5159,6 +5501,18 @@
         "tools/install.ps1"
       ]
     },
+    "Polyglot/1.2.0": {
+      "sha512": "3RZLKZhkENhrtAAPOz+eqQWfeOxHXryv5/d37EUsfDq3/pO+I1YGLmzb9PUY+xCbTYZ6uVg9rhIfrnKXlAxVxw==",
+      "type": "package",
+      "path": "Polyglot/1.2.0",
+      "files": [
+        "Polyglot.1.2.0.nupkg.sha512",
+        "Polyglot.nuspec",
+        "lib/net45/Polyglot.dll",
+        "lib/net45/Polyglot.xml",
+        "lib/netstandard1.0/Polyglot.dll"
+      ]
+    },
     "Remotion.Linq/2.1.1": {
       "sha512": "IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
       "type": "package",
@@ -5425,6 +5779,141 @@
         "runtimes/osx-x64/native/libsqlite3.dylib",
         "runtimes/win7-x64/native/sqlite3.dll",
         "runtimes/win7-x86/native/sqlite3.dll"
+      ]
+    },
+    "Stormpath.AspNetCore/0.8.1": {
+      "sha512": "/h87Jn2TeEyyaqdHpchjzaFzJKctBBNqC1Svpac/QcmK4duoexCJWsWceIgVcPxCnan33P/NeSImqOUvdpNYjw==",
+      "type": "package",
+      "path": "Stormpath.AspNetCore/0.8.1",
+      "files": [
+        "Stormpath.AspNetCore.0.8.1.nupkg.sha512",
+        "Stormpath.AspNetCore.nuspec",
+        "lib/net451/Stormpath.AspNetCore.dll",
+        "lib/net451/Stormpath.AspNetCore.xml",
+        "lib/netstandard1.6/Stormpath.AspNetCore.dll",
+        "lib/netstandard1.6/Stormpath.AspNetCore.xml"
+      ]
+    },
+    "Stormpath.Configuration/6.0.0": {
+      "sha512": "KTm7Vv57hdpI1QLMVzqKytrH9Q0HM9znBNmFXcoXvONMvDU5yNMBkst553W/5YnEXA5PnasWAMqw4+6XbOTqxA==",
+      "type": "package",
+      "path": "Stormpath.Configuration/6.0.0",
+      "files": [
+        "Stormpath.Configuration.6.0.0.nupkg.sha512",
+        "Stormpath.Configuration.nuspec",
+        "lib/net45/Stormpath.Configuration.dll",
+        "lib/netstandard1.3/Stormpath.Configuration.dll"
+      ]
+    },
+    "Stormpath.Configuration.Abstractions/6.0.0": {
+      "sha512": "NdH0nrf3Fyw7Hs/3T0XhhZ9HW3oLx+UEcnewLVpuwNoKo1n1FE5lH3iT2QZS8bYLmWjLGAPFVdAUF1XYzrbaoQ==",
+      "type": "package",
+      "path": "Stormpath.Configuration.Abstractions/6.0.0",
+      "files": [
+        "Stormpath.Configuration.Abstractions.6.0.0.nupkg.sha512",
+        "Stormpath.Configuration.Abstractions.nuspec",
+        "lib/net45/Stormpath.Configuration.Abstractions.dll",
+        "lib/netstandard1.0/Stormpath.Configuration.Abstractions.dll"
+      ]
+    },
+    "Stormpath.Owin.Abstractions/1.7.1": {
+      "sha512": "2U+PCKyC7U0QdIiYjtlhhqhBfqu09pRsvqekgcwCy2/mjQUmKVLlxAIHys7syTEENfqcaUNgIFizDM1ZYy1cCw==",
+      "type": "package",
+      "path": "Stormpath.Owin.Abstractions/1.7.1",
+      "files": [
+        "Stormpath.Owin.Abstractions.1.7.1.nupkg.sha512",
+        "Stormpath.Owin.Abstractions.nuspec",
+        "lib/net45/Stormpath.Owin.Abstractions.dll",
+        "lib/net45/Stormpath.Owin.Abstractions.xml",
+        "lib/netstandard1.1/Stormpath.Owin.Abstractions.dll",
+        "lib/netstandard1.1/Stormpath.Owin.Abstractions.xml"
+      ]
+    },
+    "Stormpath.Owin.Middleware/3.1.1": {
+      "sha512": "R3qekl+G3UYHYeQ+gjdH2VqhRisWVqHygvOwd1c9a1DwR2LEeckwiFsywIFtGxUERaf5iXh/3azbV9mcZl1FgQ==",
+      "type": "package",
+      "path": "Stormpath.Owin.Middleware/3.1.1",
+      "files": [
+        "Stormpath.Owin.Middleware.3.1.1.nupkg.sha512",
+        "Stormpath.Owin.Middleware.nuspec",
+        "lib/net45/Stormpath.Owin.Middleware.dll",
+        "lib/net45/Stormpath.Owin.Middleware.xml",
+        "lib/netstandard1.3/Stormpath.Owin.Middleware.dll",
+        "lib/netstandard1.3/Stormpath.Owin.Middleware.xml"
+      ]
+    },
+    "Stormpath.Owin.Views.Precompiled/0.4.3": {
+      "sha512": "jmxqgx2EtaNjdSfpLGWxrzNCZgtEwM56kFyyBUpqWVuDZCVcHfrBqDskPRlEa2hgTeubpz+ncvmg04UYHeBjHQ==",
+      "type": "package",
+      "path": "Stormpath.Owin.Views.Precompiled/0.4.3",
+      "files": [
+        "Stormpath.Owin.Views.Precompiled.0.4.3.nupkg.sha512",
+        "Stormpath.Owin.Views.Precompiled.nuspec",
+        "lib/net45/Stormpath.Owin.Views.Precompiled.dll",
+        "lib/net45/Stormpath.Owin.Views.Precompiled.xml",
+        "lib/netstandard1.1/Stormpath.Owin.Views.Precompiled.dll",
+        "lib/netstandard1.1/Stormpath.Owin.Views.Precompiled.xml"
+      ]
+    },
+    "Stormpath.SDK/0.95.0": {
+      "sha512": "+DOzZHwwi2Lh2wO5BIRURDfS16A7kxpiXq9rB8vGwfA6cVkRio40/jgvGpfyajW7AUUEGL0cuROOmf5DR7trvQ==",
+      "type": "package",
+      "path": "Stormpath.SDK/0.95.0",
+      "files": [
+        "Stormpath.SDK.0.95.0.nupkg.sha512",
+        "Stormpath.SDK.nuspec"
+      ]
+    },
+    "Stormpath.SDK.Abstractions/0.95.0": {
+      "sha512": "QRqKDrKlLI1Buvu/w5gip1WBZnjJ4RM2NSuUKrk50AKLnsGIy1T7GeuhPfL/xiDYpdhU2Fc3/OWRZlmzAydlSw==",
+      "type": "package",
+      "path": "Stormpath.SDK.Abstractions/0.95.0",
+      "files": [
+        "Stormpath.SDK.Abstractions.0.95.0.nupkg.sha512",
+        "Stormpath.SDK.Abstractions.nuspec",
+        "lib/net45/Stormpath.SDK.Abstractions.dll",
+        "lib/net45/Stormpath.SDK.Abstractions.xml",
+        "lib/netstandard1.1/Stormpath.SDK.Abstractions.dll",
+        "lib/netstandard1.1/Stormpath.SDK.Abstractions.xml"
+      ]
+    },
+    "Stormpath.SDK.Core/0.95.0": {
+      "sha512": "VrUq1CZd5oX2MDYE6k8d/AvMVBfsitkZe9rMR85YiITZbYIbZr3jAiTINhka4ZjhiXwznXrQzVSUcIwgRulICg==",
+      "type": "package",
+      "path": "Stormpath.SDK.Core/0.95.0",
+      "files": [
+        "Stormpath.SDK.Core.0.95.0.nupkg.sha512",
+        "Stormpath.SDK.Core.nuspec",
+        "lib/net45/Stormpath.SDK.Core.dll",
+        "lib/net45/Stormpath.SDK.Core.xml",
+        "lib/netstandard1.3/Stormpath.SDK.Core.dll",
+        "lib/netstandard1.3/Stormpath.SDK.Core.xml"
+      ]
+    },
+    "Stormpath.SDK.Http.SystemNetHttpClient/0.94.0": {
+      "sha512": "Q92oaKtwJ2I1bd5Uxwt+JO9VV7dKIJhuMKlOCy/TLXJ5tMj39kQ09P3jBEVooORT9O1EuP8xyFymMZGQnhvxuw==",
+      "type": "package",
+      "path": "Stormpath.SDK.Http.SystemNetHttpClient/0.94.0",
+      "files": [
+        "Stormpath.SDK.Http.SystemNetHttpClient.0.94.0.nupkg.sha512",
+        "Stormpath.SDK.Http.SystemNetHttpClient.nuspec",
+        "lib/net45/Stormpath.SDK.Http.SystemNetHttpClient.dll",
+        "lib/net45/Stormpath.SDK.Http.SystemNetHttpClient.xml",
+        "lib/netstandard1.1/Stormpath.SDK.Http.SystemNetHttpClient.dll",
+        "lib/netstandard1.1/Stormpath.SDK.Http.SystemNetHttpClient.xml"
+      ]
+    },
+    "Stormpath.SDK.JsonNetSerializer/0.91.0": {
+      "sha512": "Ito3nLnKhLGGG20kCS5vO5dlCNkibqKNOK9h0sCJrdKMn01yQ86fJb6jDqU3CPYTfuAH37C/DpKiFFWOGoQZqg==",
+      "type": "package",
+      "path": "Stormpath.SDK.JsonNetSerializer/0.91.0",
+      "files": [
+        "Stormpath.SDK.JsonNetSerializer.0.91.0.nupkg.sha512",
+        "Stormpath.SDK.JsonNetSerializer.nuspec",
+        "lib/net45/Stormpath.SDK.JsonNetSerializer.dll",
+        "lib/net45/Stormpath.SDK.JsonNetSerializer.xml",
+        "lib/netstandard1.1/Stormpath.SDK.JsonNetSerializer.dll",
+        "lib/netstandard1.1/Stormpath.SDK.JsonNetSerializer.xml"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -10222,6 +10711,24 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "YamlDotNet/3.9.0": {
+      "sha512": "zHrUB5ZSrxpuc2DZpj4yjrJkJLoF+VuUW6tgLJNgmQoIhHO84V6heX0TAxTZDNdp/UjVuTAoG/LU5HDrxkKV9w==",
+      "type": "package",
+      "path": "YamlDotNet/3.9.0",
+      "files": [
+        "YamlDotNet.3.9.0.nupkg.sha512",
+        "YamlDotNet.nuspec",
+        "lib/dotnet/YamlDotNet.dll",
+        "lib/dotnet/YamlDotNet.pdb",
+        "lib/dotnet/YamlDotNet.xml",
+        "lib/net35/YamlDotNet.dll",
+        "lib/net35/YamlDotNet.pdb",
+        "lib/net35/YamlDotNet.xml",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/YamlDotNet.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/YamlDotNet.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/YamlDotNet.xml"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -10240,7 +10747,8 @@
       "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.NETCore.App >= 0.0.0",
-      "RestSharp.NetCore >= 105.2.4-rc4-24214-01"
+      "RestSharp.NetCore >= 105.2.4-rc4-24214-01",
+      "Stormpath.AspNetCore"
     ]
   },
   "tools": {

@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using NewlyReadCore.SQLite;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp.Extensions.MonoHttp;
 
 namespace NewlyReadCore
 {
@@ -54,9 +57,9 @@ namespace NewlyReadCore
             return articles.OrderByDescending(p => p.timestamp).ToList();
         }
 
-        public static Dictionary<string, List<string>> ExtractHtmlFromURL(string url)
+        public static Dictionary<string, HtmlNodeCollection> ExtractHtmlFromURL(string url)
         {
-            string i = "";
+            string html = "";
             Task t = Task.Run(async () =>
             {
                 Console.WriteLine(url);
@@ -68,7 +71,7 @@ namespace NewlyReadCore
                 {
                     // ... Read the string.
                     string result = await content.ReadAsStringAsync();
-                    i = result;
+                    html = result;
                 }
             });
             TimeSpan ts = TimeSpan.FromMilliseconds(3000);
@@ -81,40 +84,39 @@ namespace NewlyReadCore
                 //Console.WriteLine("\n JSON: " + i + "\n");
             }
 
-            // load snippet
-            HtmlDocument htmlSnippet = new HtmlDocument();
-            htmlSnippet.LoadHtml(i);
+            var document = new HtmlDocument();
+            document.LoadHtml(html);
+            Console.WriteLine("Length of array before processing: " + document.DocumentNode.Descendants().ToArray().Length + "\n");
 
-            // extract hrefs
-            List<string> hrefTags = new List<string>();
-            Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>(){
-                ["title"] = new List<string>(),
-                ["text"] = new List<string>(),
-                ["extra"] = new List<string>()
-            };
-            hrefTags = new List<string>();
- 
-            foreach (HtmlNode link in htmlSnippet.DocumentNode.Descendants())
-            {   
-                Console.WriteLine(link.Name);
-                switch(link.Name){
-                    case "h1":
-                        dict["title"].Add(link.InnerText);
-                        break;
-                    
-                    case "p":
-                        dict["text"].Add(link.InnerText);
-                        break;
-                    
-                    default:
-                        dict["extra"].Add(link.InnerHtml);
-                        break;
-                }
-                
+            HtmlNode bodyContent = document.DocumentNode.SelectSingleNode("//body");
+
+            Dictionary<string, HtmlNodeCollection> dict = new Dictionary<string, HtmlNodeCollection>();
+            dict["title"] = bodyContent.SelectNodes("//h1");
+            dict["content"] = bodyContent.SelectNodes("//p");
+            dict["links"] = bodyContent.SelectNodes("//a");
+
+            foreach(var node in dict["title"])
+            {
+                node.Attributes.Remove("class");
+                node.Attributes.Remove("id");
+                node.Attributes.Remove("style");
             }
+            foreach(var node in dict["content"])
+            {
+                node.Attributes.Remove("class");
+                node.Attributes.Remove("id");
+                node.Attributes.Remove("style");
+            }
+            foreach(var node in dict["links"])
+            {
+                node.Attributes.Remove("class");
+                node.Attributes.Remove("id");
+                node.Attributes.Remove("style");
+            }
+
             return dict;
         }
-        
+
         // I shoudl really refactor this to work better with each page. (As in the home page.)
         public static List<Article> GetArticlesByCategory(string category, int length = 20)
         {

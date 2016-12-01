@@ -44,9 +44,14 @@
         "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-*",
         "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
         "RestSharp.NetCore": "105.2.4-rc4-24214-01",
-        "HtmlAgilityPack.NetCore": "1.5.0.1"
+        "HtmlAgilityPack.NetCore": "1.5.0.1",
+        "Stormpath.AspNetCore": "*"
       },
-      "imports": "dnxcore50, dnxcore45"
+      "imports": [
+        "net451",
+        "dotnet5.6",
+        "portable-net45+win8"
+      ]
     }
   }
 }
