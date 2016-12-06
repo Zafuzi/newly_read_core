@@ -1,37 +1,45 @@
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Stormpath.SDK;
-using Stormpath.SDK.Account;
+using Microsoft.AspNetCore.Http.Authentication;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NewlyReadCore.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Index()
+        IOptions<OpenIdConnectOptions> _options;
+
+        public AccountController(IOptions<OpenIdConnectOptions> options)
+        {
+            _options = options;
+        }
+
+        public IActionResult Login(string returnUrl = "/")
+        {
+            var lockContext = HttpContext.GenerateLockContext(_options.Value, returnUrl);
+            return View(lockContext);
+        }
+
+        [Authorize]
+        public IActionResult Logout()
+        {
+            HttpContext.Authentication.SignOutAsync("Auth0");
+            HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        /// <summary>
+        /// This is just a helper action to enable you to easily see all claims related to a user. It helps when debugging your
+        /// application to see the in claims populated from the Auth0 ID Token
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public IActionResult Claims()
         {
             return View();
-        }
-        public async Task<IActionResult> UpdatePasswordAsync(string newPassword)
-        {
-            await UpdatePassword(newPassword);
-            return View("Index");
-        }
-
-        private static readonly Lazy<IAccount> account;
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> UpdatePassword(string newPassword)
-        {
-            if (account.Value != null)
-            {
-                var stormpathAccount = account.Value;
-                stormpathAccount.SetPassword(newPassword);
-                await stormpathAccount.SaveAsync();
-            }
-
-            return RedirectToAction("Index");
         }
     }
 }

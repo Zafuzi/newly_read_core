@@ -7,17 +7,6 @@ a{
     text-decoration: none;
     color: #42A5F5;
 }
-aside{
-    display: inline-flex;
-    flex-flow: row wrap;
-}
-aside a{
-    width: calc(100% - 1em);
-    font-size: 1rem;
-}
-aside h3{
-    width: 100%;
-}
 body, html{
     width: 100vw;
     overflow-x: hidden;
@@ -30,7 +19,7 @@ code{
     color: #5e5e5e;
 }
 h1{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #9e9e9e;
 }
 header{
@@ -40,7 +29,7 @@ header{
     display: flex;
     height: 32px;
     flex-flow: column;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 header ul{
     list-style-type: none;
@@ -51,6 +40,13 @@ header ul li a{
 img{
     opacity: 0;
     transition: opacity .3s ease-in;
+}
+.avatar{
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: inline-flex;
 }
 main{
     display: flex;
@@ -64,24 +60,49 @@ pre{
 
 /* NAVIGATION */
 #main_nav{
-    width: 100vw;
+    width: calc(100vw);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: red;
-    border-bottom: 1px solid red;
+    background: #607D8B;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 #main_nav ul{
-    width: 100%;
+    width: calc(90% - 1em);
+    justify-content: space-between;
+    display: flex;
 }
 #main_nav ul li{
-    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
-#main_nav ul li a{
-    width: 100%;
-    flex-grow: 1;
-    text-align: center;
-    display: block;
+
+.dropdown{
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    top: 48px;
+    left: 1em;
+    opacity: 0;
+    background: #fff;
+    width: 200px !important;
+    flex-basis: 200px;
+    color: #212121;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    box-shadow: .11em .1em .1em #BDBDBD;
+    justify-content: flex-start;
+    text-align: left;
+}
+.dropdown a{
+    color: #212121;
+    width: calc(100% - 1em);
+    margin: .5em;
+    padding: .5em;
+    text-align: left;
 }
 
 #slide_nav{
@@ -93,14 +114,13 @@ pre{
     align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
-    background: #fff;
-    border-bottom: 1px solid #f5f5f5;
+    background: #FF4081;
     width: 100vw;
 }
 #slide_nav_main{
     margin-top: 48px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     width: 100%;
     align-items: flex-start;
     justify-content: center;
@@ -111,13 +131,13 @@ pre{
     margin-right: 2em;
 }
 #slide_nav_main li h2{
-    color: red;
+    color: #fff;
 }
 #slide_nav_main li li{
     display: inline-flex;
 }
 #slide_nav_main li a{
-    color: #42A5F5;
+    color: #212121;
 }
 #backbar_nav{
     width: 100vw;
@@ -125,8 +145,8 @@ pre{
     justify-content: center;
     align-items: center;
     height: 32px;
-    background: #2e2e2e;
-    border-bottom: 1px solid #2e2e2e;
+    background: #607D8B;
+    border-bottom: 1px solid #607D8B;
     position: absolute;
     z-index: 1;
 }
@@ -153,7 +173,6 @@ pre{
 }
 .stream_card h4{
     width: 100%;
-    font-size: 1.5rem;
     color: #555;
 }
 .stream_card figure{
@@ -178,6 +197,16 @@ pre{
     width: 90%;
 }
 
+/* Account */
+.account{
+    display: flex;
+    width: calc(85% - 1em);
+    margin: .5em;
+    padding: .5em;
+    flex-basis: 1;
+    flex-flow: row wrap;
+}
+
 /* READER */
 .reader{
     width: 90%;
@@ -189,25 +218,18 @@ pre{
     flex-flow: column;
     padding: 0;
     margin: 1em;
-    font-size: 1.5rem;
     line-height: 2rem;
     color:#555;
 }
 .reader_container p{
     margin: 1em 0;
     color: #555;
-    font-size: 1.5rem;
     line-height: 2.2rem;
 }
 .reader_container h1{
     width: 100%;
     color: #2e2e2e;
-    font-size: 3rem;
     line-height: 3.5rem;
-}
-.warning{
-    color: red;
-    font-size: .9rem;
 }
 .code_container{
     width: 90%;
@@ -241,16 +263,11 @@ pre{
         margin: .5em 0;
         padding: 0;
         color: #555;
-        font-size: 1.2rem;
         line-height: 2.0rem;
     }
     .reader_container h1{
         width: 100%;
         color: #2e2e2e;
-        font-size: 1.5rem;
         line-height: 2.2rem;
-    }
-    #slide_nav{
-        font-size: 1rem;
     }
 }

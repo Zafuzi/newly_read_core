@@ -2,25 +2,6 @@
 	<nav id="slide_nav" class="nav">
 		<ul id="slide_nav_main">
 			<li>
-				<h2>Account</h2>
-				<ul>
-					@if(User.Identity.IsAuthenticated){
-						<li>
-							<form action="/logout" method="post" id="logout_form">
-								<a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
-									Log Out
-								</a>
-							</form>
-						</li>
-						<li><a href="/Account/">Manage</a></li>
-					}else{
-						<li><a href="/login">Login</a></li>
-						<li><a href="/register">Register</a></li>
-					}
-				</ul>
-			</li>
-			<li>
-				<h2>Categories</h2>
 				<ul>
 					<li><a href="/Categories/?category=business">Business</a></li>
 					<li><a href="/Categories/?category=entertainment">Entertainment</a></li>
@@ -37,7 +18,31 @@
 
 	<nav id="main_nav" class="nav">
 		<ul>
-			<li><a href="#" id="menu_toggle_open">Menu</a></li>
+			<li>
+				<a href="#" id="menu_toggle_open">Menu</a>
+				<ul class="dropdown">
+					<li><a href="/Categories/?category=business">Business</a></li>
+					<li><a href="/Categories/?category=entertainment">Entertainment</a></li>
+					<li><a href="/Categories/?category=gaming">Gaming</a></li>
+					<li><a href="/Categories/?category=general">General</a></li>
+					<li><a href="/Categories/?category=music">Music</a></li>
+					<li><a href="/Categories/?category=science-and-nature">Science &amp; Nature</a></li>
+					<li><a href="/Categories/?category=sport">Sports</a></li>
+					<li><a href="/Categories/?category=technology">Technology</a></li>
+				</ul>
+			</li>
+			@if(User.Identity.IsAuthenticated){
+				<li>
+					<form action="/Account/logout" method="post" id="logout_form">
+						<a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
+							Log Out
+						</a>
+					</form>
+				</li>
+				<li><a href="/Account/Claims">Manage</a></li>
+			}else{
+				<li><a href="/Account/login">Login</a></li>
+			}
 		</ul>
 	</nav>
 	@if(ViewBag.Title == "Article"){

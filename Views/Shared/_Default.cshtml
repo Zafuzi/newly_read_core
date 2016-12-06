@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <link rel="stylesheet" href="~/lib/css/main.css">
     <title>Newly Read | @ViewBag.Title</title>
 </head>
@@ -14,13 +14,14 @@
         @RenderSection("featured", required: false)
         @RenderBody()
     </main>
-
-
+    
     <script src="~/lib/scripts/jquery-3-1-1.min.js"></script>
     <script src="~/lib/scripts/velocity.min.js"></script>
     <script src="~/lib/scripts/jquery.sticky.js"></script>
     <script src="~/lib/scripts/jquery.unveil.js"></script>
-    <script src="~/lib/scripts/index.js"></script> @RenderSection("scripts", required:false)
+    <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
+    <script src="~/lib/scripts/index.js"></script>
+    @RenderSection("scripts", required:false)
 </body>
 
 </html>

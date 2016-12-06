@@ -1,11 +1,7 @@
-@inject Lazy<Stormpath.SDK.Account.IAccount> Account;
-
 <div class="account">
-    @if (Account.Value != null){
-        <p>Hello, <b>@Account.Value.GivenName</b>!</p>
-    }
-    <form action="/Account/UpdatePasswordAsync/" method="GET">
-        <input type="password" name="newPassword" placeholder="Change Your Password"/>
-        <input type="submit"/>
-    </form>
+    <p>Hello <span class="nickname"></span></p>
+    <img class="avatar" style="opacity:1;" src="https://unsplash.it/200/200">
+    <input type="button" class="btn-login" value="login"/>
+    <input type="button" class="btn-logout" value="logout"/>
 </div>
+

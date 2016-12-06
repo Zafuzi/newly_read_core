@@ -29,23 +29,35 @@
       "dependencies": {
         "Microsoft.NETCore.App": {
           "type": "platform",
-          "version": "0.0"
+          "version": "1.0.0"
         },
         "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
         "Microsoft.EntityFrameworkCore.Design": {
           "version": "1.0.0-preview2-final",
           "type": "build"
         },
+        "Microsoft.AspNetCore.Diagnostics": "1.0.0",
         "Microsoft.AspNetCore.Mvc": "1.0.0",
-        "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-        "Microsoft.AspNetCore.Diagnostics": "*",
+        "Microsoft.AspNetCore.Razor.Tools": {
+          "version": "1.0.0-preview2-final",
+          "type": "build"
+        },
+        "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
         "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+        "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+        "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
+        "Microsoft.Extensions.Configuration.Json": "1.0.0",
+        "Microsoft.Extensions.Logging": "1.0.0",
         "Microsoft.Extensions.Logging.Console": "1.0.0",
-        "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-*",
-        "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+        "Microsoft.Extensions.Logging.Debug": "1.0.0",
+        "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+        "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
+        "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.0.0",
+        "Microsoft.NETCore.Portable.Compatibility": "*",
         "RestSharp.NetCore": "105.2.4-rc4-24214-01",
         "HtmlAgilityPack.NetCore": "1.5.0.1",
-        "Stormpath.AspNetCore": "*"
+        "Microsoft.AspNetCore.Authentication.JwtBearer": "*"
       },
       "imports": [
         "net451",
