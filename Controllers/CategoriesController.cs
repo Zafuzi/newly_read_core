@@ -4,6 +4,11 @@ using NewlyReadCore.SQLite;
 
 namespace NewlyReadCore{
     public class CategoriesController : Controller{
+         public ActionResult Index(string category){
+            ViewBag.Category = category;
+            ViewBag.List = ReadAPI.GetArticlesByCategory(category, 10);
+            return View("Index");
+        }
 
         public ActionResult Article(string url){
             var db = new MyDBContext();
