@@ -57,7 +57,8 @@
         "Microsoft.NETCore.Portable.Compatibility": "*",
         "RestSharp.NetCore": "105.2.4-rc4-24214-01",
         "HtmlAgilityPack.NetCore": "1.5.0.1",
-        "Microsoft.AspNetCore.Authentication.JwtBearer": "*"
+        "Microsoft.AspNetCore.Authentication.JwtBearer": "*",
+        "Auth0.ManagementApi": "2.0.0"
       },
       "imports": [
         "net451",

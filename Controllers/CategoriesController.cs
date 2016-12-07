@@ -1,19 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using NewlyReadCore.SQLite;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace NewlyReadCore{
     public class CategoriesController : Controller{
-        public ActionResult Index(string category){
-            ViewBag.Category = category;
-            ViewBag.List = ReadAPI.GetArticlesByCategory(category, 10);
-            return View("Index");
-        }
 
         public ActionResult Article(string url){
             var db = new MyDBContext();

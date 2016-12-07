@@ -86,6 +86,8 @@ pre{
     top: 48px;
     left: 1em;
     opacity: 0;
+    height: 0;
+    overflow: hidden;
     background: #fff;
     width: 200px !important;
     flex-basis: 200px;

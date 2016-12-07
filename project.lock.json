@@ -3,6 +3,31 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "Auth0.Core/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/Auth0.Core.dll": {}
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/Auth0.Core.dll": {}
+        }
+      },
+      "Auth0.ManagementApi/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Auth0.Core": "2.0.0",
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
+        }
+      },
       "HtmlAgilityPack.NetCore/1.5.0.1": {
         "type": "package",
         "dependencies": {
@@ -4464,6 +4489,30 @@
     }
   },
   "libraries": {
+    "Auth0.Core/2.0.0": {
+      "sha512": "IfHteaTfXBSjEFWFn/0bpgV5ixBFf/wwRSVpv2HUsOUCOUhxBYoh3CRBr8omDhtMZyaLDb1Oy7rF7AKj3jtDyg==",
+      "type": "package",
+      "path": "Auth0.Core/2.0.0",
+      "files": [
+        "Auth0.Core.2.0.0.nupkg.sha512",
+        "Auth0.Core.nuspec",
+        "lib/portable45-net45+win8+wpa81/Auth0.Core.XML",
+        "lib/portable45-net45+win8+wpa81/Auth0.Core.dll",
+        "lib/portable45-net45+win8+wpa81/Auth0.Core.pdb"
+      ]
+    },
+    "Auth0.ManagementApi/2.0.0": {
+      "sha512": "j8rnt8KRw/c5DKnr8PkwSmgBH1AweLABQIOdqTfqdyFQlXsGJdbC2Hz4pX9G2b32ZM0ZF5VGuKHySgIBiQnvjQ==",
+      "type": "package",
+      "path": "Auth0.ManagementApi/2.0.0",
+      "files": [
+        "Auth0.ManagementApi.2.0.0.nupkg.sha512",
+        "Auth0.ManagementApi.nuspec",
+        "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll",
+        "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.pdb",
+        "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.xml"
+      ]
+    },
     "HtmlAgilityPack.NetCore/1.5.0.1": {
       "sha512": "N6FUlFbidfiWu1TcrNDQufaU5TbZ2RRn+kYHjwsLxcklQU8Cnmul+pTn2clKausZRHeFVxGp2ZECIWuDvot8Hg==",
       "type": "package",
@@ -11358,6 +11407,7 @@
       "jquery >= 3.1.1"
     ],
     ".NETCoreApp,Version=v1.0": [
+      "Auth0.ManagementApi >= 2.0.0",
       "HtmlAgilityPack.NetCore >= 1.5.0.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer",

@@ -2,15 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using NewlyReadCore.SQLite;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp.Extensions.MonoHttp;
 
 
 namespace NewlyReadCore
@@ -41,6 +37,7 @@ namespace NewlyReadCore
             return result;
         }
 
+        // Get a quick summary of two articles from each category, this goes on the front page.
         public static List<Article> SummarizeLatestArticles(int length = 2)
         {
             var db = new MyDBContext();
@@ -58,6 +55,7 @@ namespace NewlyReadCore
             return articles.OrderByDescending(p => p.timestamp).ToList();
         }
 
+        // Extract HTML from a specified url
         public static Dictionary<string, HtmlNodeCollection> ExtractHtmlFromURL(string url)
         {
             string html = "";
@@ -75,6 +73,8 @@ namespace NewlyReadCore
                     html = result;
                 }
             });
+            // This sucks, I have to wait becuase I need to go grab the website and then return all of the html.
+            // If I don't wait than the extraction will try to do it's job with and empty string.
             TimeSpan ts = TimeSpan.FromMilliseconds(3000);
             if (!t.Wait(ts))
             {
@@ -118,7 +118,7 @@ namespace NewlyReadCore
             return dict;
         }
 
-        // I shoudl really refactor this to work better with each page. (As in the home page.)
+        // Gets the most recent 20 articles for the specified category.
         public static List<Article> GetArticlesByCategory(string category, int length = 20)
         {
             var db = new MyDBContext();

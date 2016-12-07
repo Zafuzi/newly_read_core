@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "327371188c345403047a1b231b5182f27ea9f3b5"
+    "signature": "3628e84e60fb2c95a1b851ad47b55d4bcac65786"
   },
   "compilationOptions": {
     "defines": [
@@ -37,6 +37,7 @@
           "RestSharp.NetCore": "105.2.4-rc4-24214-01",
           "HtmlAgilityPack.NetCore": "1.5.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
+          "Auth0.ManagementApi": "2.0.0",
           "jquery": "3.1.1"
         },
         "runtime": {
@@ -44,6 +45,29 @@
         },
         "compile": {
           "newly_read_core.dll": {}
+        }
+      },
+      "Auth0.Core/2.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/Auth0.Core.dll": {}
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/Auth0.Core.dll": {}
+        }
+      },
+      "Auth0.ManagementApi/2.0.0": {
+        "dependencies": {
+          "Auth0.Core": "2.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
         }
       },
       "HtmlAgilityPack.NetCore/1.5.0.1": {
@@ -3944,6 +3968,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Auth0.Core/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IfHteaTfXBSjEFWFn/0bpgV5ixBFf/wwRSVpv2HUsOUCOUhxBYoh3CRBr8omDhtMZyaLDb1Oy7rF7AKj3jtDyg=="
+    },
+    "Auth0.ManagementApi/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j8rnt8KRw/c5DKnr8PkwSmgBH1AweLABQIOdqTfqdyFQlXsGJdbC2Hz4pX9G2b32ZM0ZF5VGuKHySgIBiQnvjQ=="
     },
     "HtmlAgilityPack.NetCore/1.5.0.1": {
       "type": "package",

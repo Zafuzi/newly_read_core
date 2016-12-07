@@ -6,11 +6,10 @@
   <script src="https://cdn.auth0.com/js/lock/10.4/lock.min.js"></script>
   <script>
     var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
-      container: 'root',
       auth: {
         responseType: 'code',
         params: {
-          scope: 'openid',
+          scope: 'openid email',
           state: '@Model.State' ,
           nonce: '@Model.Nonce'
         },
