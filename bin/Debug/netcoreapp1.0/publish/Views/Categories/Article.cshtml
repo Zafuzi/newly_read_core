@@ -1,20 +1,33 @@
 @using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
 @{ 
 	ViewBag.Title = "Article"; 
-	ViewBag.GoBack = true; 
-	var json = JsonConvert.DeserializeObject(ViewBag.JSON); 
+	ViewBag.GoBack = true;
 }
 
-
 <div class="reader">
-	
 	<div class="reader_container">
-		<h1>@json.title</h1>
-		<small>@json.provider_name | <a href="@json.url"> Original Article </a> </small>
-		<p>@json.description</p>
-		@Html.Raw(json.content)
-		@if(json.media.length > 0){ 
-			@Html.Raw(json.media) 
+		@foreach(var node in ViewBag.Nodes["title"]){
+			<h1>@Html.Raw(node.InnerText)</h1>
+		}
+		<a href="@ViewBag.Original" target="_blank">Original Article</a>
+		@foreach(var node in ViewBag.Nodes["content"]){
+			<p>@Html.Raw(node.InnerText)</p>
 		}
 	</div>
 </div>
+
+@section scripts{
+	<script>
+		$(function(){
+			$("img").map((img, key) => {
+				$(key).attr('data-src', $(key).attr('src'));
+			});
+			$("img").unveil(200, function() {
+				$(this).on('load', function(){
+					$(this).velocity({"opacity": "1"});
+				});
+			});
+		});
+	</script>
+}

@@ -1,37 +1,53 @@
 <header>
-	<nav id="header_nav">
-		<a href="#" class="menu_toggle">menu</a>
-	</nav>
-</header>
-
-<div id="toggle_nav">
-	<div class="top">
-		<ul id="main_nav">
-			<li id="menu_toggle_container">
-				<a href="#" class="menu_toggle">
-					<span>Close</span>
-					<span>X</span>
-				</a>
-				<div class="profile">
-					<a href="#">Login</a>
-				</div>
+	<nav id="slide_nav" class="nav">
+		<ul id="slide_nav_main">
+			<li>
+				<ul>
+					<li><a href="/Categories/?category=business">Business</a></li>
+					<li><a href="/Categories/?category=entertainment">Entertainment</a></li>
+					<li><a href="/Categories/?category=gaming">Gaming</a></li>
+					<li><a href="/Categories/?category=general">General</a></li>
+					<li><a href="/Categories/?category=music">Music</a></li>
+					<li><a href="/Categories/?category=science-and-nature">Science &amp; Nature</a></li>
+					<li><a href="/Categories/?category=sport">Sports</a></li>
+					<li><a href="/Categories/?category=technology">Technology</a></li>
+				</ul>
 			</li>
-			<li><a href="/Home">Home</a></li>
-			<li><a href="/Home/About">About</a></li>
 		</ul>
-	</div>
+	</nav>
 
-	<div class="bottom">
-		<div class="dropdown">
-			<a class="dropdown_toggle">
-				<span>Categories</span>
-				<span class="dropdown_toggle_arrow">V</span>
-			</a>
-			<ul class="dropdown_content toggled" id="category_menu">
-				<li><a href="#">Business</a></li>
-				<li><a href="#">Entertainment</a></li>
-				<li><a href="#">General</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+	<nav id="main_nav" class="nav">
+		<ul>
+			<li>
+				<a href="#" id="menu_toggle_open">Menu</a>
+				<ul class="dropdown">
+					<li><a href="/Categories/?category=business">Business</a></li>
+					<li><a href="/Categories/?category=entertainment">Entertainment</a></li>
+					<li><a href="/Categories/?category=gaming">Gaming</a></li>
+					<li><a href="/Categories/?category=general">General</a></li>
+					<li><a href="/Categories/?category=music">Music</a></li>
+					<li><a href="/Categories/?category=science-and-nature">Science &amp; Nature</a></li>
+					<li><a href="/Categories/?category=sport">Sports</a></li>
+					<li><a href="/Categories/?category=technology">Technology</a></li>
+				</ul>
+			</li>
+			@if(User.Identity.IsAuthenticated){
+				<li>
+					<form action="/Account/logout" method="post" id="logout_form">
+						<a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
+							Log Out
+						</a>
+					</form>
+				</li>
+				<li><a href="/Account/Claims">Manage</a></li>
+			}else{
+				<li><a href="/Account/login">Login</a></li>
+			}
+		</ul>
+	</nav>
+	@if(ViewBag.Title == "Article"){
+		<nav id="backbar_nav" class="nav">
+			<a class="back-btn" href="javascript:window.history.back();">Back</a>
+		</nav>
+	}
+</header>

@@ -1,18 +1,24 @@
+@using NewlyReadCore.SQLite 
+@using NewlyReadCore.Tools
 @{ 
     string title = ViewBag.Category;
     ViewBag.Title = title; 
 }
-<h1 class="center_h">@ViewBag.Category</h1>
 
-<div class="stream_container">
-	@foreach (var item in ViewBag.CatArticles) {
-        <a href="/Categories/Article/?url=@item.url" class="stream_card">
-            <h4>@item.title</h4> 
+<div class="stream_container"> 
+    @foreach(var article in ViewBag.List){
+        <a href="/Categories/Article/?url=@article.url" class="stream_card">
+            <h4>@article.title</h4>
             <figure>
-                <img src="@item.urlToImage"/>
+                @if(article.urlToImage!=null){
+                     <img src="@article.urlToImage" data-src="@article.urlToImage"/>
+                }else{
+                     <img src="@article.urlToImage" data-src="../images/default.png"/>
+                }
                 <figcaption>
-                    <p>@item.description</p>
-                    <small>@item.author @item.publishedAt</small>
+                    <p>@ArrayTools.Truncate(article.description, 120)...</p>
+                    <br/>
+                    <p>@article.provider_name | @article.author @article.publishedAt</p>
                 </figcaption>
             </figure>
         </a>
