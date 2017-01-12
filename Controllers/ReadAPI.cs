@@ -7,6 +7,9 @@ using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using NewlyReadCore.SQLite;
 using Newtonsoft.Json;
+using Aylien.TextApi;
+using RestSharp;
+using NewlyReadCore.Models;
 
 
 namespace NewlyReadCore
@@ -56,65 +59,29 @@ namespace NewlyReadCore
         }
 
         // Extract HTML from a specified url
-        public static Dictionary<string, HtmlNodeCollection> ExtractHtmlFromURL(string url)
+        public static Dictionary<string, string> ExtractHtmlFromURL(string url)
         {
-            string html = "";
-            Task t = Task.Run(async () =>
-            {
-                Console.WriteLine(url);
-                // ... Use HttpClient.
-                using (HttpClient client = new HttpClient())
-                using (HttpResponseMessage response = await client.GetAsync(url))
+            //Aylien Article Extraction
+            var client = new RestClient("https://api.aylien.com/api/v1/extract");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("X-AYLIEN-TextAPI-Application-Key","d2756216e77576be81b60c178ec7b060");
+            request.AddHeader("X-AYLIEN-TextAPI-Application-ID","86883b47");
+            request.AddParameter("best_image", "true");
+            request.AddParameter("url", url);
 
-                using (HttpContent content = response.Content)
-                {
-                    // ... Read the string.
-                    string result = await content.ReadAsStringAsync();
-                    html = result;
-                }
-            });
-            // This sucks, I have to wait becuase I need to go grab the website and then return all of the html.
-            // If I don't wait than the extraction will try to do it's job with and empty string.
-            TimeSpan ts = TimeSpan.FromMilliseconds(3000);
-            if (!t.Wait(ts))
-            {
-                Console.WriteLine("The timeout interval elapsed.");
-            }
-            else
-            {
-                //Console.WriteLine("\n JSON: " + i + "\n");
-            }
-
-            var document = new HtmlDocument();
-            document.LoadHtml(html);
-            Console.WriteLine("Length of array before processing: " + document.DocumentNode.Descendants().ToArray().Length + "\n");
-
-            HtmlNode bodyContent = document.DocumentNode.SelectSingleNode("//body");
-
-            Dictionary<string, HtmlNodeCollection> dict = new Dictionary<string, HtmlNodeCollection>();
-            dict["title"] = bodyContent.SelectNodes("//h1");
-            dict["content"] = bodyContent.SelectNodes("//p");
-            dict["links"] = bodyContent.SelectNodes("//a");
-
-            foreach(var node in dict["title"])
-            {
-                node.Attributes.Remove("class");
-                node.Attributes.Remove("id");
-                node.Attributes.Remove("style");
-            }
-            foreach(var node in dict["content"])
-            {
-                node.Attributes.Remove("class");
-                node.Attributes.Remove("id");
-                node.Attributes.Remove("style");
-            }
-            foreach(var node in dict["links"])
-            {
-                node.Attributes.Remove("class");
-                node.Attributes.Remove("id");
-                node.Attributes.Remove("style");
-            }
-
+            //IRestResponse response = client.Execute(request);
+            //var content = response.Content; // raw content as string
+            // async with deserialization
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            var response = client.Execute<ExtractedArticle>(request);
+            //Console.WriteLine(response.Data.title);
+            dict["title"] = response.Data.title;
+            //Console.WriteLine(response.Data.author);
+            dict["author"] = response.Data.author;
+            //Console.WriteLine(response.Data.article);
+            dict["article"] = response.Data.article;
+            dict["publishDate"] = response.Data.publishDate;
+            dict["image"] = response.Data.image;
             return dict;
         }
 

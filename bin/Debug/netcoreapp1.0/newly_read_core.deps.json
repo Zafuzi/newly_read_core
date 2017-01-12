@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "3628e84e60fb2c95a1b851ad47b55d4bcac65786"
+    "signature": "fdc8349306218585f335f931d8755ce84f6fd4d8"
   },
   "compilationOptions": {
     "defines": [
@@ -38,6 +38,7 @@
           "HtmlAgilityPack.NetCore": "1.5.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
           "Auth0.ManagementApi": "2.0.0",
+          "Aylien.TextApi": "1.0.0",
           "jquery": "3.1.1"
         },
         "runtime": {
@@ -68,6 +69,14 @@
         },
         "compile": {
           "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
+        }
+      },
+      "Aylien.TextApi/1.0.0": {
+        "runtime": {
+          "lib/net45/Aylien.TextApi.dll": {}
+        },
+        "compile": {
+          "lib/net45/Aylien.TextApi.dll": {}
         }
       },
       "HtmlAgilityPack.NetCore/1.5.0.1": {
@@ -3978,6 +3987,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-j8rnt8KRw/c5DKnr8PkwSmgBH1AweLABQIOdqTfqdyFQlXsGJdbC2Hz4pX9G2b32ZM0ZF5VGuKHySgIBiQnvjQ=="
+    },
+    "Aylien.TextApi/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KaMpNjZQhwbdgWAeETki2L8YMmujbOHiK5JIuCY2PuQoCI6Gi8zmLp6PG7h6J3mwU00sF9qg9yQAJscLCJYlbw=="
     },
     "HtmlAgilityPack.NetCore/1.5.0.1": {
       "type": "package",

@@ -52,7 +52,7 @@ main{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 48px;
+    margin-top: 32px;
 }
 pre{
     white-space: pre-wrap;
@@ -222,11 +222,13 @@ pre{
     margin: 1em;
     line-height: 2rem;
     color:#555;
+    justify-content: center;
 }
 .reader_container p{
     margin: 1em 0;
     color: #555;
     line-height: 2.2rem;
+    justify-content: center;
 }
 .reader_container h1{
     width: 100%;
@@ -272,4 +274,16 @@ pre{
         color: #2e2e2e;
         line-height: 2.2rem;
     }
+}
+
+.article_header{
+    max-height: 50vh !important;
+    object-fit: cover;
+    width: 125% !important;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    align-self: center;
+}
+.article_body{
 }

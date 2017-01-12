@@ -1,19 +1,30 @@
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Linq
-@{ 
-	ViewBag.Title = "Article"; 
-	ViewBag.GoBack = true;
-}
 
 <div class="reader">
 	<div class="reader_container">
-		@foreach(var node in ViewBag.Nodes["title"]){
-			<h1>@Html.Raw(node.InnerText)</h1>
+		@if(ViewBag.isNode){
+			<img class="article_header" src='@ViewBag.Nodes["image"]'/>
+			<a href="@ViewBag.Original" target="_blank">Original Article</a>
+			<div class="article_body">
+				<h1>@ViewBag.Nodes["title"]</h1>
+				<small>@ViewBag.Nodes["author"] | @ViewBag.Nodes["publishDate"]</small>
+				<div>
+					@* Serialize and extract each line break for paragraphs *@
+					@foreach(var c in ViewBag.Nodes["article"]){
+						@c
+						if(c == '\n'){
+							@Html.Raw("<br/>")
+						}
+					}
+				</div>
+			</div>
+		}else{
+			@ViewBag.Article.title
+			@ViewBag.Article.jsonstring
 		}
-		<a href="@ViewBag.Original" target="_blank">Original Article</a>
-		@foreach(var node in ViewBag.Nodes["content"]){
-			<p>@Html.Raw(node.InnerText)</p>
-		}
+		
+		
 	</div>
 </div>
 

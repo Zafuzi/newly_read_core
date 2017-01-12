@@ -28,6 +28,15 @@
           "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll": {}
         }
       },
+      "Aylien.TextApi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Aylien.TextApi.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Aylien.TextApi.dll": {}
+        }
+      },
       "HtmlAgilityPack.NetCore/1.5.0.1": {
         "type": "package",
         "dependencies": {
@@ -4511,6 +4520,17 @@
         "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.dll",
         "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.pdb",
         "lib/portable45-net45+win8+wpa81/Auth0.ManagementApi.xml"
+      ]
+    },
+    "Aylien.TextApi/1.0.0": {
+      "sha512": "KaMpNjZQhwbdgWAeETki2L8YMmujbOHiK5JIuCY2PuQoCI6Gi8zmLp6PG7h6J3mwU00sF9qg9yQAJscLCJYlbw==",
+      "type": "package",
+      "path": "Aylien.TextApi/1.0.0",
+      "files": [
+        "Aylien.TextApi.1.0.0.nupkg.sha512",
+        "Aylien.TextApi.nuspec",
+        "lib/net45/Aylien.TextApi.dll",
+        "tools/README.md"
       ]
     },
     "HtmlAgilityPack.NetCore/1.5.0.1": {
@@ -11408,6 +11428,7 @@
     ],
     ".NETCoreApp,Version=v1.0": [
       "Auth0.ManagementApi >= 2.0.0",
+      "Aylien.TextApi >= 1.0.0",
       "HtmlAgilityPack.NetCore >= 1.5.0.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer",
